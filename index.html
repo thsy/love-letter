@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>给你的一封情人节信</title>
+  <title>给静静的一封情人节信</title>
   <style>
     body {
       margin: 0;
@@ -11,6 +11,7 @@
       font-family: "Microsoft YaHei", sans-serif;
       overflow: hidden;
     }
+
     .container {
       width: 100%;
       height: 100vh;
@@ -21,87 +22,112 @@
       padding: 20px;
       box-sizing: border-box;
     }
+
     .card {
-      background: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.92);
       border-radius: 20px;
       padding: 30px;
-      max-width: 500px;
+      max-width: 520px;
       box-shadow: 0 0 20px rgba(0,0,0,0.2);
-      animation: fadeIn 3s ease;
+      animation: fadeIn 2.5s ease;
     }
+
     h1 {
       color: #e91e63;
+      margin-bottom: 15px;
     }
+
     p {
       line-height: 1.8;
       font-size: 16px;
       color: #333;
     }
+
     .signature {
       margin-top: 20px;
       font-weight: bold;
     }
+
+    .tip {
+      margin-top: 10px;
+      font-size: 13px;
+      color: #888;
+    }
+
     @keyframes fadeIn {
       from {opacity:0; transform: translateY(20px);}
       to {opacity:1; transform: translateY(0);}
     }
+
     .heart {
       position: absolute;
-      width: 20px;
-      height: 20px;
-      background: red;
+      width: 18px;
+      height: 18px;
+      background: #ff4b6e;
       transform: rotate(45deg);
       animation: floatUp 6s infinite;
     }
+
     .heart::before,
     .heart::after {
       content: '';
-      width: 20px;
-      height: 20px;
-      background: red;
+      width: 18px;
+      height: 18px;
+      background: #ff4b6e;
       border-radius: 50%;
       position: absolute;
     }
+
     .heart::before {
-      top: -10px;
+      top: -9px;
       left: 0;
     }
+
     .heart::after {
-      left: -10px;
+      left: -9px;
       top: 0;
     }
+
     @keyframes floatUp {
-      0% {bottom: -50px; opacity: 1;}
-      100% {bottom: 100%; opacity: 0;}
+      0% {bottom: -40px; opacity: 1;}
+      100% {bottom: 110%; opacity: 0;}
     }
   </style>
 </head>
 <body>
 
-<audio autoplay loop>
-  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_7c9c0e9b88.mp3?filename=romantic-piano-112191.mp3" type="audio/mpeg">
+<!-- 背景音乐 -->
+<audio id="bgm" loop controls style="position:fixed; bottom:10px; left:10px;">
+  <source src="love-song.mp3" type="audio/mpeg">
+  你的浏览器不支持音频播放
 </audio>
 
 <div class="container">
   <div class="card">
-    <h1>💌 给你的一封情人节信</h1>
+    <h1>💌 给静静的一封情人节信</h1>
     <p>
-      亲爱的XX：<br><br>
+      亲爱的静静：<br><br>
       虽然今天不能在你身边，但我还是想用一种特别的方式陪你过情人节。<br><br>
       这段时间认识你、和你一起逛街、聊天、笑的时候，我发现自己越来越珍惜你。<br><br>
       谢谢你把那个娃娃当成情人节礼物，我真的很开心，因为那代表你也在认真对待我们。<br><br>
       希望以后每一个重要的日子，我都能陪在你身边，而不是只存在在屏幕里。<br><br>
-      情人节快乐。<br>
+      情人节快乐~<br>
       想你。❤️
     </p>
+
     <div class="signature">
-      —— 永远想牵你手的 XXX<br>
+      —— Always yours, Huang<br>
       2026.02.14
+    </div>
+
+    <div class="tip">
+      🎵 若未自动播放，请点击左下角播放音乐
     </div>
   </div>
 </div>
 
 <script>
+  // 爱心动画
   function createHeart() {
     const heart = document.createElement("div");
     heart.className = "heart";
@@ -113,6 +139,12 @@
     }, 6000);
   }
   setInterval(createHeart, 500);
+
+  // 点击页面尝试自动播放（兼容手机限制）
+  document.body.addEventListener('click', function () {
+    const bgm = document.getElementById("bgm");
+    bgm.play();
+  });
 </script>
 
 </body>
