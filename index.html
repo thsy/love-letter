@@ -1,179 +1,238 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <title>给静静的一封情人节信</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to bottom, #ffdde1, #ee9ca7);
-      font-family: "Microsoft YaHei", sans-serif;
-      overflow-x: hidden;
-    }
+<meta charset="UTF-8">
+<title>给静静的一封情人节信</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
-    .container {
-      width: 100%;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 5vw;
-      box-sizing: border-box;
-    }
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at bottom, #020111, #000000);
+  font-family: "Microsoft YaHei", sans-serif;
+  overflow: hidden;
+  color: white;
+}
 
-    .card {
-      background: rgba(255,255,255,0.92);
-      border-radius: 20px;
-      padding: 5vw;
-      width: 90%;
-      max-width: 520px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.2);
-      animation: fadeIn 2.5s ease;
-      box-sizing: border-box;
-    }
-       
-    h1 {
-      color: #e91e63;
-      margin-bottom: 15px;
-      font-size: 6vw;
-    }
+/* 星空 */
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: twinkle 3s infinite alternate;
+}
 
-    p {
-      line-height: 1.8;
-      font-size: 4vw;
-      color: #333;
-    }
+@keyframes twinkle {
+  from {opacity:0.3;}
+  to {opacity:1;}
+}
 
-    .signature {
-      margin-top: 20px;
-      font-weight: bold;
-      font-size: 4vw;
-    }
+/* 爱心 */
+.heart {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: rgba(255, 75, 110, 0.7);
+  transform: rotate(45deg);
+  animation: floatUp 10s linear infinite;
+}
 
-    .tip {
-      margin-top: 10px;
-      font-size: 3.5vw;
-      color: #888;
-    }
+.heart::before,
+.heart::after {
+  content: '';
+  width: 18px;
+  height: 18px;
+  background: rgba(255, 75, 110, 0.7);
+  border-radius: 50%;
+  position: absolute;
+}
 
-    @keyframes fadeIn {
-      from {opacity:0; transform: translateY(20px);}
-      to {opacity:1; transform: translateY(0);}
-    }
+.heart::before { top: -9px; left: 0; }
+.heart::after { left: -9px; top: 0; }
 
-    .heart {
-      position: absolute;
-      width: 4vw;
-      height: 4vw;
-      background: #ff4b6e;
-      transform: rotate(45deg);
-      animation: floatUp 6s infinite;
-    }
+@keyframes floatUp {
+  from { bottom: -30px; opacity: 0.8;}
+  to { bottom: 110%; opacity: 0;}
+}
 
-    .heart::before,
-    .heart::after {
-      content: '';
-      width: 4vw;
-      height: 4vw;
-      background: #ff4b6e;
-      border-radius: 50%;
-      position: absolute;
-    }
+.container {
+  width: 100%;
+  height: 100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:5vw;
+  box-sizing:border-box;
+}
 
-    .heart::before {
-      top: -2vw;
-      left: 0;
-    }
+.card {
+  background: rgba(255,255,255,0.92);
+  color:#333;
+  border-radius:20px;
+  padding:5vw;
+  width:90%;
+  max-width:520px;
+  box-shadow:0 0 25px rgba(255,255,255,0.2);
+  text-align:center;
+  animation: fadeIn 2s ease;
+}
 
-    .heart::after {
-      left: -2vw;
-      top: 0;
-    }
+h1 {
+  color:#e91e63;
+  font-size:6vw;
+  margin-bottom:10px;
+}
 
-    @keyframes floatUp {
-      0% {bottom: -10vw; opacity: 1;}
-      100% {bottom: 110%; opacity: 0;}
-    }
+p {
+  line-height:1.8;
+  font-size:4vw;
+  min-height: 200px;
+}
 
-    #bgm {
-      display: none;
-    }
-  </style>
+.signature {
+  margin-top:15px;
+  font-weight:bold;
+  font-size:4vw;
+}
+
+.tip {
+  margin-top:10px;
+  font-size:3.5vw;
+  color:#666;
+}
+
+/* 播放按钮 */
+.music-btn {
+  margin-top: 12px;
+  padding: 10px 18px;
+  border-radius: 30px;
+  border: none;
+  background: #e91e63;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from {opacity:0; transform: translateY(20px);}
+  to {opacity:1; transform: translateY(0);}
+}
+
+#bgm { display:none; }
+</style>
 </head>
+
 <body>
 
-<!-- 背景音乐 -->
 <audio id="bgm" preload="auto">
   <source src="./love-song.mp3" type="audio/mpeg">
-  你的浏览器不支持音频播放
 </audio>
 
 <div class="container">
   <div class="card">
     <h1>💌 给静静的一封情人节信</h1>
-    <p>
-      亲爱的静静：<br><br>
-      虽然今天不能在你身边，但我还是想用一种特别的方式陪你过情人节。<br><br>
-      这段时间认识你、和你一起逛街、聊天、笑的时候，我发现自己越来越珍惜你。<br><br>
-      你就像晨光一样洒进我世界，让一切都柔和而明亮~<br><br>
-      希望以后每一个重要的日子，我都能陪在你身边，而不是只存在在屏幕里。<br><br>
-      情人节快乐！<br>
-      想你。❤️
-    </p>
+
+    <p id="letterText"></p>
 
     <div class="signature">
       —— Always yours, Huang<br>
       2026.02.14
     </div>
 
-    <div class="tip" id="musicTip">
-      🎵 点击屏幕开启背景音乐
-    </div>
+    <button class="music-btn" id="musicBtn">🎵 播放音乐</button>
+
+    <div class="tip" id="musicTip">点击按钮开启背景音乐</div>
   </div>
 </div>
 
 <script>
-  // 爱心动画
-  function createHeart() {
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
-    document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 6000);
+/* 星空背景 */
+for(let i=0;i<120;i++){
+  const star=document.createElement("div");
+  star.className="star";
+  star.style.left=Math.random()*100+"vw";
+  star.style.top=Math.random()*100+"vh";
+  star.style.animationDuration=(Math.random()*3+2)+"s";
+  document.body.appendChild(star);
+}
+
+/* 爱心动画（更柔和） */
+function createHeart(){
+  const heart=document.createElement("div");
+  heart.className="heart";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.animationDuration=(Math.random()*5+8)+"s";
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),12000);
+}
+setInterval(createHeart,1500);
+
+/* 打字机文字 */
+const text = `
+亲爱的静静：
+
+虽然今天不能在你身边，
+但我还是想用一种特别的方式陪你过情人节。
+
+这段时间认识你、和你一起逛街、聊天、笑的时候，
+我发现自己越来越珍惜你。
+
+你就像晨光一样洒进我世界，
+让一切都柔和而明亮。
+
+希望以后每一个重要的日子，
+我都能陪在你身边，
+而不是只存在在屏幕里。
+
+情人节快乐！
+想你。❤️
+`;
+
+let index = 0;
+const speed = 60;
+const letterEl = document.getElementById("letterText");
+
+function typeWriter(){
+  if(index < text.length){
+    letterEl.innerHTML += text[index] === "\n" ? "<br>" : text[index];
+    index++;
+    setTimeout(typeWriter, speed);
   }
-  setInterval(createHeart, 500);
+}
+typeWriter();
 
-  const bgm = document.getElementById("bgm");
-  const musicTip = document.getElementById("musicTip");
+/* 音乐控制 */
+const bgm = document.getElementById("bgm");
+const btn = document.getElementById("musicBtn");
+const tip = document.getElementById("musicTip");
 
-  let hasPlayed = false;
+let isPlaying = false;
 
-  function playMusicOnce() {
-    if (hasPlayed) return;
-
-    bgm.play().then(() => {
-      hasPlayed = true;
-      musicTip.textContent = "🎵 音乐正在播放，祝你情人节快乐~";
-    }).catch(() => {
-      musicTip.textContent = "🎵 请点击屏幕播放音乐";
+btn.addEventListener("click", ()=>{
+  if(!isPlaying){
+    bgm.play().then(()=>{
+      isPlaying=true;
+      btn.textContent="⏸ 暂停音乐";
+      tip.textContent="🎵 音乐正在播放";
     });
+  } else {
+    bgm.pause();
+    isPlaying=false;
+    btn.textContent="🎵 播放音乐";
+    tip.textContent="音乐已暂停";
   }
+});
 
-  // 强制循环播放，解决播放几十秒停止的问题
-  bgm.addEventListener("ended", function () {
-    bgm.currentTime = 0;
-    bgm.play();
-  });
-
-  // 绑定用户交互（兼容手机 & 微信）
-  document.body.addEventListener("click", playMusicOnce);
-  document.body.addEventListener("touchstart", playMusicOnce);
+/* 强制循环 */
+bgm.addEventListener("ended", ()=>{
+  bgm.currentTime=0;
+  bgm.play();
+});
 </script>
 
 </body>
 </html>
-
